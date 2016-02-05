@@ -1,0 +1,39 @@
+{
+  "name": "pagina-api",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "package:update": "npm outdated --depth=0 | grep -v Package | awk '{print $1}' | xargs -I% npm install %@latest --save"
+  },
+  "engines": {
+    "node": "4.2.3",
+    "npm": "3.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/pagina-io/api.git"
+  },
+  "author": "Mike Timofiiv (http://fiiv.io)",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cors": "^2.7.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "glob": "^6.0.4",
+    "inflected": "^1.1.6",
+    "jsonwebtoken": "^5.5.4",
+    "method-override": "^2.3.5",
+    "mongoose": "^4.4.1",
+    "mongoose-timestamp": "^0.5.0",
+    "mongoose-url-slugs": "^0.2.1",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-github": "^1.1.0",
+    "phobosjs": "^1.0.21",
+    "pm2": "^1.0.0",
+    "response-time": "^2.3.1"
+  }
+}
