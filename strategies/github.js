@@ -20,30 +20,27 @@ module.exports = function(DS) {
 
     query.exec(function(err, user) {
       if (err) return done(err);
+      if (user) return done(err, user);
 
-      if (user) {
-        return done(err, user);
-      } else {
-        var Identity = new DS.Identity({
-          uid: parseInt(profile.id),
-          provider: 'github',
-          token: accessToken,
-          profile: profile._json
-        });
+      var Identity = new DS.Identity({
+        uid: parseInt(profile.id),
+        provider: 'github',
+        token: accessToken,
+        profile: profile._json
+      });
 
-        var User = new DS.User({
-          identity: Identity,
-          avatar: profile.photos[0].value,
-          username: profile.username,
-          email: profile.emails[0].value
-        });
+      var User = new DS.User({
+        identity: Identity,
+        avatar: profile.photos[0].value,
+        username: profile.username,
+        email: profile.emails[0].value
+      });
 
-        User.save(function(err) {
-          if (err) return done(err);
+      User.save(function(err) {
+        if (err) return done(err);
 
-          return done(err, User);
-        });
-      }
+        return done(err, User);
+      });
     });
   };
 
