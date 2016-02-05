@@ -26,6 +26,31 @@ module.exports = {
     searchableBy: [ '_id', 'owner', 'name' ]
   },
 
+  File: {
+    read: true,
+
+    edit: {
+      '*': false,
+      owner: true,
+      admin: true
+    },
+
+    create: {
+      '*': true,
+      user: true,
+      admin: true
+    },
+
+    delete: {
+      '*': false,
+      admin: true,
+      owner: true
+    },
+
+    owners: [ 'owner' ],
+    searchableBy: [ '_id', 'repo', 'owner', 'filename' ]
+  },
+
   User: {
     read: {
       admin: true,

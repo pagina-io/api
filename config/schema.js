@@ -20,7 +20,8 @@ module.exports = function(mongoose) {
 
   Schemas.File = new Schema({
     filename: { type: String, required: true },
-    repo: { type: ObjectId, ref: 'Repo', required: true }
+    repo: { type: ObjectId, ref: 'Repo', required: true },
+    owner: { type: ObjectId, ref: 'User', required: true }
   });
 
   Schemas.Repo = new Schema({
